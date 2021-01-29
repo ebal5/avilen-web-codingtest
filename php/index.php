@@ -1,11 +1,11 @@
 <?php
-$endpoint = explode('/', $_SERVER['PATH_INFO'])[1];
-if($endpoint=="start"){
-    include("index.html");
-    exit;
-}
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
 
-if($endpoint=="api"){
-    // ここに処理を記述してください。
-}
+$obj = $_POST['pattern'];
+
+// ここに処理を記述してください。
+
+$ans = "answer";
+echo($ans);
 ?>

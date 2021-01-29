@@ -51,25 +51,24 @@ FizzBuzzというプログラムは、3の倍数が入力されると�
 「パターンを送信」をクリックすると下図のように結果が表示されます。
 ![アプリケーションのスクリーンショット](screenshot.png "スクリーンショット")
 
-## PHPでの回答の始めかた
-- 下記コマンドを実行し、phpサーバーを立ち上げる
+## 回答準備
 ```bash
 git clone git@github.com:y0he1/avilen-web-codingtest.git
-cd avilen-web-codingtest
-php -S localhost:8080 ./php/index.php 
+cd avilen-web-codingtest 
 ```
-- http://localhost:8080/start にアクセスしてアプリケーションのフロント画面にアクセスしてサーバーが立ち上がっていることを確認
-- `./php/index.php`を編集して回答をスタート
+- PHPまたはnodeのどちらで回答するか選択し、`docker-compose.yaml`の中のphpかnodeどちらかをコメントアウトする。
+- `docker-compose up -d`とコマンドラインで実行し、二つのコンテナを立ち上げて実行する。
+- http://localhost:3000 にアクセスしてサーバーが立ち上がっていることを確認
+- http://localhost:8080 にアクセスしてサーバーが立ち上がっていることを確認
 
-## node.jsでの回答の始めかた
-- 下記コマンドを実行し、nodeサーバーを立ち上げる
-```bash
-git clone git@github.com:y0he1/avilen-web-codingtest.git
-cd avilen-web-codingtest
-node ./node/index.js
-```
-- http://localhost:8080/start にアクセスしてアプリケーションのフロント画面にアクセスしてサーバーが立ち上がっていることを確認
-- `./node/index.js`を編集して回答をスタート
+## 回答の始めかた
+- `docker-compose down`でコンテナを止める。
+- `./php/index.php`または`./node/index.js`を編集して回答をスタート。
+- 回答終了後`docker-compose up -d`でコンテナを立ち上げて実行する。
+
+## 回答終了後
+- `docker-compose down`でコンテナを止める。
+- `docker rmi $(docker images -a -q)`でイメージを削除。
 
 ## 解答の提出
 
