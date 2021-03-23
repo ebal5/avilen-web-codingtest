@@ -29,6 +29,10 @@
 n N  
 A<sub>1</sub> A<sub>2</sub> ... A<sub>n</sub> 
 
+#### 出力形式
+
+"Yes" or "No"を出力してください。
+
 #### サンプルケース
 
 入力 1
@@ -79,7 +83,11 @@ No
 T  
 A<sub>1</sub>,B<sub>1</sub>,C<sub>1</sub>  
 ...  
-A<sub>T</sub>,B<sub>T</sub>,C<sub>T</sub>  
+A<sub>T</sub>,B<sub>T</sub>,C<sub>T</sub> 
+
+#### 出力形式
+
+最小の操作回数を出力してください。
 
 #### サンプルケース
 
