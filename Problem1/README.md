@@ -53,7 +53,7 @@ FizzBuzz というプログラムは、3 の倍数が入力されると
 ## 回答準備
 
 ```bash
-git clone git@github.com:y0he1/avilen-web-codingtest.git
+git clone git@github.com:avilendev/avilen-web-codingtest.git
 cd avilen-web-codingtest/Problem1
 ```
 
