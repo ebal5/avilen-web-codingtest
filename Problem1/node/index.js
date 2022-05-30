@@ -1,19 +1,36 @@
-const http = require('http');
-const url = require('url');
+const express = require('express');
 
-const server = http.createServer((req, res)=>{
-   const queryObject = url.parse(req.url, true).query;
-   console.log(queryObject.obj);
+const app = express()
+app.use(express.json())
 
-   // ここに処理を記述してください。
-   ans = "answer";
+app.listen(8080, () => {
+   console.log('Server is running on port 8080');
+});
 
-   res.setHeader('Access-Control-Allow-Origin', '*');
-   res.setHeader('Access-Control-Request-Method', '*');
-   res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
-   res.setHeader('Access-Control-Allow-Headers', '*');
-   res.writeHead(200, {'Content-Type': 'text/html'});
-   res.write(ans);
+app.use((req, res, next) => {
+   res.header('Access-Control-Allow-Origin', '*');
+   res.header('Access-Control-Request-Method', '*');
+   res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
+   res.header('Access-Control-Allow-Headers', '*');
+
+   if (req.method === 'OPTIONS') {
+      res.sendStatus(200);
+   } else {
+      next();
+   }
+});
+
+app.post('/', (req, res) => {
+   const pattern = req.body.pattern;
+   console.log(pattern);
+
+   // 以下に処理を記述し、res.writeに出力内容を渡してください。
+   // ===============処理記述部分==================
+
+   // ===========================================
+   res.writeHead(200, { 'Content-Type': 'text/html' });
+   // 出力結果を以下に渡してください。
+   // res.write(answer);
    res.end();
 });
-server.listen(8080); 
+
