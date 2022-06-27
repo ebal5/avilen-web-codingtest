@@ -26,11 +26,24 @@ app.post('/', (req, res) => {
 
    // 以下に処理を記述し、res.writeに出力内容を渡してください。
    // ===============処理記述部分==================
-
+   let answer = ""
+   for (let i = 1; i <= 30; i++) {
+      let ians = "";
+      for (let kv of req.body.obj) {
+         if (i % kv["num"] == 0) {
+            ians += ` ${kv["text"]}`
+         }
+      }
+      if (ians == "") {
+         answer += ` ${i},`
+      } else {
+         answer += `${ians},`
+      }
+   }
    // ===========================================
    res.writeHead(200, { 'Content-Type': 'text/html' });
    // 出力結果を以下に渡してください。
-   // res.write(answer);
+   res.write(answer);
    res.end();
 });
 
