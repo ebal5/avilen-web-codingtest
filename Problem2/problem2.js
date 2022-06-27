@@ -11,8 +11,9 @@ function test(_a, _b, _c) {
   if (valid(_a, _b, _c)) return 0;
   const queue = [];
   const max = Math.max(_a, _b, _c);
+  const min = Math.min(_a, _b, _c);
   const _second = second(_a, _b, _c);
-  if(max - _second > 2) {
+  if(max - _second > 2 && min === 1) {
     const level = max - (_second + 1);
     if (max === _a) {
       queue.push([_a - level, _b, _c, level]);
