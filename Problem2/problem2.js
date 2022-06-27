@@ -7,23 +7,22 @@ function main(input) {
   }
 }
 
-function test(a, b, c) {
-  const result = recur(a, b, c, 0);
-  if (isFinite(result)) {
-    return result;
-  } else {
-    return -1;
+function test(_a, _b, _c) {
+  const queue = [[_a, _b, _c, 0]];
+  while (queue.length != 0) {
+    const [a, b, c, level] = queue.shift();
+    if (valid(a, b, c)) return level;
+    if (a - 1 > 0) {
+      queue.push([a-1, b, c, level + 1]);
+    }
+    if (b - 1 > 0) {
+      queue.push([a, b-1, c, level + 1]);
+    }
+    if ( c - 1 > 0) {
+      queue.push([a, b, c-1, level + 1]);
+    }
   }
-}
-
-function recur(a, b, c, level) {
-  if (Math.min(a, b, c) == 0) return Infinity;
-  if (valid(a, b, c)) return level;
-  return Math.min(
-    recur(a-1, b, c, level + 1),
-    recur(a, b - 1, c, level + 1),
-    recur(a, b, c - 1, level + 1),
-  );
+  return -1;
 }
 
 function valid(a, b, c) {
