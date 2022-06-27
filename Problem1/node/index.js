@@ -26,8 +26,9 @@ app.post('/', (req, res) => {
 
    // 以下に処理を記述し、res.writeに出力内容を渡してください。
    // ===============処理記述部分==================
+   const last = 30
    let answer = ""
-   for (let i = 1; i <= 30; i++) {
+   for (let i = 1; i <= last; i++) {
       let ians = "";
       for (let kv of req.body.obj) {
          if (i % kv["num"] == 0) {
@@ -35,9 +36,12 @@ app.post('/', (req, res) => {
          }
       }
       if (ians == "") {
-         answer += ` ${i},`
+         answer += ` ${i}`
       } else {
-         answer += `${ians},`
+         answer += `${ians}`
+      }
+      if (i != last) {
+         answer += ","
       }
    }
    // ===========================================
